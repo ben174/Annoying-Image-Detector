@@ -37,7 +37,12 @@ def match_template(img, template_path):
     return len(match_indices)
 
 # grab the first argument, this is the url of the image to test
-srcimg = sys.argv[1]
+if len(sys.argv) == 1: 
+    print "No argument detected, using default example."
+    srcimg = "http://i.imgur.com/gy1Hz.png"
+else: 
+    srcimg = sys.argv[1]
+
 
 # create a temp file to hold the downloaded file
 fd, path = tempfile.mkstemp() 
